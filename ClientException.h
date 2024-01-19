@@ -6,16 +6,18 @@
 #define CLIENTEXCEPTION_H
 #include <exception>
 
-// Inheritence
-class ClientException : public std::exception {
+// Use of Inheritence
+class ClientException final : public std::exception {
 public:
+    // Description of Error
     char* description;
+    // Error Code so more easily traceable
     int code;
 
     // Constructor
     ClientException(char* desc, int co);
 
-    // Polymorpish
+    // Polymorphism & Overriding
     [[nodiscard]] const char* what() const noexcept override;
 };
 

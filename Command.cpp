@@ -4,12 +4,12 @@
 
 #include "Command.h"
 
-
 #include <string.h>
 #include <utility>
 
 #include "ClientException.h"
 
+// Utility Function From Stack Overflow (https://stackoverflow.com/questions/25345598/c-implementation-to-trim-char-array-of-leading-trailing-white-space-not-workin)
 static void strtrim(char* str) {
     int start = 0; // number of leading spaces
     char* buffer = str;
@@ -25,15 +25,21 @@ static void strtrim(char* str) {
 
 // Usage of Construct For Command Class
 // t is used for input or type
-Command::Command(char* t, std::vector<char*> b) {
-    strtrim(t);
+Command::Command(char* type, std::vector<char*> body) {
 
-    if (strcmp(t, "") != 0) {
+    // Trims function to make sure thats no whitespace in the command tyers
+    strtrim(type);
+
+    // Check if command type is empty
+    if (strcmp(type, "") != 0) {
+        // Throws error since command type cannot be empty
         throw ClientException("Command Type Empty", 101);
     }
 
-    type = t;
-    body = std::move(b);
+    // Sets type to internal type variable
+    this->type = type;
+    // Sets body to internal body variable
+    this->body = std::move(body);
 }
 
 

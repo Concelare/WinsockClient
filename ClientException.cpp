@@ -4,13 +4,14 @@
 
 #include "ClientException.h"
 
+// Constructor For ClientException
 ClientException::ClientException(char* desc, const int co) {
     description = desc;
     code = co;
 }
 
 
-// Polymorphism Overide
+// Polymorphism Override
 const char* ClientException::what() const noexcept {
     return this->description;
 }
