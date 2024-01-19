@@ -51,13 +51,13 @@ void BlogPost::ReadPosts(const SOCKET socket) {
     Command cmd = Command("ReadBlog", body);
 
 
-    // Send Command To Server
+    // Send Command To Server Using Winsock
     send(socket, reinterpret_cast<char *>(&cmd), sizeof(cmd), 0 );
 
     // Initialise Vector Response of Posts
     std::vector<BlogPost> posts;
 
-    // Recieve Posts Response
+    // Recieve Posts Response using Winsock
     recv(socket, reinterpret_cast<char *>(&posts), sizeof(posts), 0);
 
     // Loops Posts & Calls Display Posts

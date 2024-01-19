@@ -12,9 +12,7 @@
 
 class Admin {
 public:
+   // Static Member
    static void DeletePost(SOCKET socket,  User user, char* post_title);
 };
-
-
-
 #endif //ADMIN_H

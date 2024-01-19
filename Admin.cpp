@@ -12,6 +12,7 @@
 
 void Admin::DeletePost(SOCKET socket, User user, char* post_title) {
     // Checks if username is admin if not throws error
+    // Uses Friendship to access username
     if (strcmp(user.username, "admin") != 0) {
         throw ClientException("User is not admin", 201);
     }
@@ -40,7 +41,5 @@ void Admin::DeletePost(SOCKET socket, User user, char* post_title) {
         // If the response is false post deletion failed so throw error
         throw ClientException("Deleting Post Failed", 202);
     }
-
     std::cout << "Successfully Deleted Post" << std::endl;
-
 }

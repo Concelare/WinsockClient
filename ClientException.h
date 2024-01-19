@@ -7,6 +7,7 @@
 #include <exception>
 
 // Use of Inheritence
+// Inheriting from std::exeception
 class ClientException final : public std::exception {
 public:
     // Description of Error
@@ -20,7 +21,5 @@ public:
     // Polymorphism & Overriding
     [[nodiscard]] const char* what() const noexcept override;
 };
-
-
 
 #endif //CLIENTEXCEPTION_H
